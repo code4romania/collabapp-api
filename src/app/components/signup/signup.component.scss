@@ -1,0 +1,28 @@
+.signup-form {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.form-section {
+  margin-bottom: 40px;
+
+  .form-inline {
+    label {
+      justify-content: left;
+    }
+  }
+}
+
+ng-select {
+  /deep/ .ui-select-choices.dropdown-menu {
+    display: block !important;
+  }
+
+  /deep/ .ui-select-container {
+    width: 100%;
+    padding: 8px 12px 2px 12px;
+  }
+}
+
+
+
