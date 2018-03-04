@@ -1,6 +1,28 @@
 import http from 'http';
 import winston from 'winston';
+import mongoose from 'mongoose';
 import app from './app';
+import config from './config';
+
+/**
+ * Connect to mongoDB
+ */
+const uri = config.mongo.uri;
+
+mongoose.connect(uri);
+mongoose.Promise = global.Promise;
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('connected', () => {
+    console.log(`Connection to ${uri} established.`);
+});
+db.on('disconnected', () => {
+    console.log(`Connection to ${uri} disconnected.`);
+});
+db.on('error', (err) => {
+    console.log(`Error occured: ${err}.`);
+});
 
 // @todo: config
 const PORT = '3000';

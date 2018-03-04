@@ -4,6 +4,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import index from './routes';
 
 const app = express();
 
@@ -16,6 +17,6 @@ app.use(urlencoded({
 }));
 app.use(morgan('combined'));
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use('/', index);
 
 export default app;
