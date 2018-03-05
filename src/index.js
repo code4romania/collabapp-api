@@ -13,19 +13,14 @@ mongoose.connect(uri);
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+db.on('error', winston.error.bind(winston, 'MongoDB connection error:'));
 db.on('connected', () => {
-    console.log(`Connection to ${uri} established.`);
+    winston.log('info', `Connection to ${uri} established.`);
 });
 db.on('disconnected', () => {
-    console.log(`Connection to ${uri} disconnected.`);
+    winston.log('info', `Connection to ${uri} disconnected.`);
 });
-db.on('error', (err) => {
-    console.log(`Error occured: ${err}.`);
-});
-
-// @todo: config
-const PORT = '3000';
 
 const normalizePort = (value) => {
   const port = parseInt(value, 10);
@@ -43,7 +38,7 @@ const normalizePort = (value) => {
   return false;
 };
 
-const port = normalizePort(process.env.PORT || PORT);
+const port = normalizePort(process.env.PORT || config.port);
 
 app.set('port', port);
 
