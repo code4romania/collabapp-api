@@ -3,11 +3,6 @@ import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Schema;
 
 const UserSchema = new mongoose.Schema({
-    id: {
-        type: ObjectId,
-        requiered: true,
-        description: "A user's id.",
-    },
     firstName: {
         type: String,
         required: true,

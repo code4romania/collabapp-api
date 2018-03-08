@@ -1,10 +1,10 @@
-import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLInt, GraphQLString, GraphQLList } from 'graphql';
+import { GraphQLObjectType, GraphQLNonNull, GraphQLID, GraphQLString } from 'graphql';
 
 const UserType = new GraphQLObjectType({
     name: 'User',
     description: 'A user object.',
     fields: {
-        id: {
+        _id: {
             type: GraphQLID,
             description: "A user's id.",
         },
@@ -25,7 +25,7 @@ const UserType = new GraphQLObjectType({
             description: "A user's password.",
         },
         privileges: {
-            type: GraphQLInt,
+            type: GraphQLString,
             description: "A user's privileges.",
         },
     },
