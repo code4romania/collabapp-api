@@ -1,14 +1,25 @@
+# use mongo with docker
+# go to /dev
+docker-compose up
+ 
+# install dependencies
 yarn install
-
-# watch development
+ 
+# watch changes (using nodemon and babel-node)
 yarn run watch
-
-# run development build
+ 
+# create development build
+yarn run build:dev
+ 
+# create production build
+yarn run build:prod
+ 
+# create and run development build
 yarn run start:dev
-
-# run production build
+ 
+# create and run production build
 yarn run start:prod
-
+ 
 # set up local db
     - start mongod service
     - execute command "mongo" in terminal to start MongoDB shell
