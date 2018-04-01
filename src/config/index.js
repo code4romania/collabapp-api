@@ -1,10 +1,7 @@
+// @todo: use dotenv package
 export default {
-    // TODO: extend config file
-    port: 3000,
-    mongo: {
-        uri: 'mongodb://localhost:27017/collab_app',
-    },
-    app: {
-        url: 'http://localhost:3000',
-    },
-};
+  MONGO: {
+    URI: 'mongodb://localhost:27017/collab_app'
+  },
+  PORT: 3000
+}
