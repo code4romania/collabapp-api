@@ -1,4 +1,4 @@
-const webpackNodeExternals = require('webpack-node-externals');
+const webpackNodeExternals = require('webpack-node-externals')
 
 module.exports = {
   externals: [webpackNodeExternals()],
@@ -8,15 +8,10 @@ module.exports = {
         exclude: /node_modules/,
         test: /\.js$/,
         use: {
-          loader: 'babel-loader',
-        },
-      },
-    ],
+          loader: 'babel-loader'
+        }
+      }
+    ]
   },
-  resolve: {
-    alias: {
-      // @todo: add aliases
-    },
-  },
-  target: 'node',
-};
+  target: 'node'
+}
