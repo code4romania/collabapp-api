@@ -7,7 +7,7 @@ import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { ENV } from './constants/environment'
-import mongoModels from './database/models';
+import models from './mongoose/models'
 import schema from './graphql/schema'
 
 const app = express()
@@ -19,7 +19,7 @@ app.use(morgan('combined'))
 
 app.use('/', json(), graphqlExpress({
   context: {
-    mongo: mongoModels
+    mongoose: models
   },
   formatError,
   schema
