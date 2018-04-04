@@ -17,7 +17,7 @@ app.use(helmet())
 app.use(compression())
 app.use(morgan('combined'))
 
-app.use('/', json(), graphqlExpress({
+app.use('/graphql', json(), graphqlExpress({
   context: {
     mongoose: models
   },
@@ -27,7 +27,7 @@ app.use('/', json(), graphqlExpress({
 
 if (process.env.NODE_ENV !== ENV.PRODUCTION) {
   app.get('/graphiql', graphiqlExpress({
-    endpointURL: '/'
+    endpointURL: '/graphql'
   }))
 }
 

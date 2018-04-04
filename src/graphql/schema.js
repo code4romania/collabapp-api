@@ -1,8 +1,8 @@
-import { GraphQLSchema } from 'graphql';
-import query from './rootQuery';
-import mutation from './rootMutation';
+import { makeExecutableSchema } from 'graphql-tools';
+import resolvers from './resolvers'
+import typeDefs from './typeDefs'
 
-export default new GraphQLSchema({
-    query,
-    // mutation,
-});
+export default makeExecutableSchema({
+  resolvers,
+  typeDefs
+})
